@@ -62,7 +62,7 @@ class BoostConan(ConanFile):
         if self.settings.compiler == "Visual Studio" and self.settings.compiler.runtime:
             flags.append("runtime-link=%s" % ("static" if "MT" in str(self.settings.compiler.runtime) else "shared"))
         flags.append("variant=%s" % str(self.settings.build_type).lower())
-        flags.append("address-model=%s" % ("32" if self.settings.arch == "x86" else "64"))
+        flags.append("address-model=%s" % ("64" if self.settings.arch == "x86_64" else "32"))
         
         # LIBCXX DEFINITION
         libcxx = None
